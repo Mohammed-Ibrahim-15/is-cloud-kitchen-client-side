@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import Banner from '../../Banner/Banner';
 import ItemsCard from '../ItemsCard/ItemsCard';
@@ -24,6 +25,7 @@ const Home = () => {
                     ></ItemsCard>)
                 }
             </div>
+            <Link to='/services'><button className="btn btn-active btn-ghost mt-4">See All</button></Link>
         </div>
     );
 };
