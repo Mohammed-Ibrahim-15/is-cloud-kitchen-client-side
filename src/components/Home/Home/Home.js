@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
+import Banner from '../../Banner/Banner';
 import ItemsCard from '../ItemsCard/ItemsCard';
 
 const Home = () => {
@@ -13,9 +14,8 @@ const Home = () => {
 
     }, [])
     return (
-        <div>
-            <h1>Total Items: {items.length} </h1>
-            <h1>This is HOME</h1>
+        <div className='max-w-screen-xl mx-auto'>
+            <Banner></Banner>
             <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
                 {
                     items.map(item => <ItemsCard
