@@ -3,8 +3,6 @@ import { FaHamburger } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
-
-
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
     console.log(user)
@@ -15,7 +13,7 @@ const Navbar = () => {
             user?.email ?
                 <>
                     <li><Link >My Review</Link> </li>
-                    <li><Link to='/AddService'>Add Service</Link></li>
+                    <li><Link to='/addService'>Add Service</Link></li>
                     <li><Link onClick={logOut}>Logout</Link> </li>
                     <li><Link to=''>{user?.email}</Link> </li>
                 </>
@@ -45,7 +43,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Get started</a>
+                <Link className="btn">Get started</Link>
             </div>
         </div>
     );

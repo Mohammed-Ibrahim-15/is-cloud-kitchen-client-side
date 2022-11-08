@@ -7,6 +7,7 @@ import Main from "../../layout/Main";
 import Login from "../../Login/Login/Login";
 import Register from "../../Login/Register/Register";
 import Services from "../../Services/Services";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
     {
@@ -19,7 +20,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/blog',
-                element: <Blog></Blog>
+                element: <PrivateRoute><Blog></Blog></PrivateRoute>
             },
             {
                 path: '/login',
