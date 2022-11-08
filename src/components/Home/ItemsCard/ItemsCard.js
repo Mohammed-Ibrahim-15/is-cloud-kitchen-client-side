@@ -10,8 +10,8 @@ const ItemsCard = ({ item }) => {
                 <div className="card-body">
                     <h2 className="card-title">{name}</h2>
                     {
-                        description.length > 100 ?
-                            <Link to={`/services/${_id}}`}><p>{description.slice(0, 100) + '...' + 'See More'} <button className="text-xs btn btn-active btn-ghost mt-2">View Details</button> </p></Link>
+                        description.length > 95 ?
+                            <p>{description.slice(0, 95) + '...' + '  See More'} <Link to={`/services/${_id}`}><button className="text-xs btn btn-active btn-ghost mt-2">View Details</button></Link> </p>
                             :
                             <p>{description}</p>
                     }
