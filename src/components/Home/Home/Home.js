@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import Banner from '../../Banner/Banner';
 import ItemsCard from '../ItemsCard/ItemsCard';
+import Order from '../ItemsCard/Order/Order';
 
 const Home = () => {
     const { user } = useContext(AuthContext)
@@ -28,6 +29,7 @@ const Home = () => {
             <div className='flex justify-center'>
                 <Link to='/services'><button className="btn btn-active btn-ghost mt-4">See All</button></Link>
             </div>
+            <Order></Order>
         </div>
     );
 };
