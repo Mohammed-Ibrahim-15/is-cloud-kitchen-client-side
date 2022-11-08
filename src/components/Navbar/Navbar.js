@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaHamburger } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext)
+    console.log(user)
     const menuItems = <>
         <li><Link to='/'>Home</Link> </li>
         <li><Link to='/blog'>Blog</Link> </li>
-        <li><Link to='/login'>Login</Link> </li>
+        {
+            user?.email ?
+                <>
+                    <li><Link >My Review</Link> </li>
+                    <li><Link to='/AddService'>Add Service</Link></li>
+                    <li><Link onClick={logOut}>Logout</Link> </li>
+                    <li><Link to=''>{user?.email}</Link> </li>
+                </>
+
+                :
+                <li><Link to='/login'>Login</Link> </li>
+        }
+
     </>
 
     return (
