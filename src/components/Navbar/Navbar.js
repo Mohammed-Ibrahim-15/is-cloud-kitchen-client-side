@@ -15,7 +15,7 @@ const Navbar = () => {
                     <li><Link >My Review</Link> </li>
                     <li><Link to='/addService'>Add Service</Link></li>
                     <li><Link onClick={logOut}>Logout</Link> </li>
-                    <li><Link to=''>{user?.email}</Link> </li>
+                    <li><Link to='/'>{user?.email}</Link> </li>
                 </>
 
                 :
