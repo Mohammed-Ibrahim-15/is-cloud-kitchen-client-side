@@ -25,9 +25,8 @@ const Home = () => {
                     ></ItemsCard>)
                 }
             </div>
-            <div>
+            <div className='flex justify-center'>
                 <Link to='/services'><button className="btn btn-active btn-ghost mt-4">See All</button></Link>
-
             </div>
         </div>
     );
