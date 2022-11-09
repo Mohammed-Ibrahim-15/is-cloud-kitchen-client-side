@@ -12,7 +12,7 @@ const Navbar = () => {
         {
             user?.email ?
                 <>
-                    <li><Link >My Review</Link> </li>
+                    <li><Link to='/myReview'>My Review</Link> </li>
                     <li><Link to='/addService'>Add Service</Link></li>
                     <li><Link onClick={logOut}>Logout</Link> </li>
                     <li><Link to='/'>{user?.email}</Link> </li>

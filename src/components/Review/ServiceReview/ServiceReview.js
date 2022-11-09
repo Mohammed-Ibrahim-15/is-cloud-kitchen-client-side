@@ -9,6 +9,7 @@ const ServiceReview = ({ item }) => {
     const handleReview = (event) => {
         event.preventDefault();
         const form = event.target
+        const userName = user?.displayName
         const email = user?.email
         const userImg = user?.photoURL
         const review = form.review.value
@@ -16,6 +17,7 @@ const ServiceReview = ({ item }) => {
         const serviceReview = {
             service: _id,
             serviceName: name,
+            userName,
             email,
             userImg,
             review
