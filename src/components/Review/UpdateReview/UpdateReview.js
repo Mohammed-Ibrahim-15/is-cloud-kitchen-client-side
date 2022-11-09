@@ -1,29 +1,31 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 
 const UpdateReview = () => {
-    // const { user } = useContext(AuthContext)
+
     const storedReview = useLoaderData()
     const { serviceName, userName, userImg, email, review } = storedReview
     const [userReview, setUserReview] = useState(storedReview)
 
+
     const handleUpdate = (event) => {
         event.preventDefault();
-        console.log(userReview)
+        // console.log(userReview)
 
-        // fetch(`http://localhost:5000/reviews/${id}`, {
-        //     method: 'PATCH',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify()
-
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log(data)
-        //     })
+        fetch(`http://localhost:5000/update/${storedReview._id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(userReview)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    alert('Review Updated')
+                    console.log(data)
+                }
+            })
     }
 
     const handleChange = (event) => {
@@ -32,9 +34,8 @@ const UpdateReview = () => {
         const newReview = { ...userReview }
         newReview[field] = value;
         setUserReview(newReview)
-
-
     }
+
     return (
         <div>
             <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
