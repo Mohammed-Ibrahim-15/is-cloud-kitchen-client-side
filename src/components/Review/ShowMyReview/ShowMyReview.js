@@ -5,8 +5,6 @@ const ShowMyReview = ({ userReview, handleDelete }) => {
     // console.log(userReview)
     const { _id, serviceName, userName, userImg, review, email } = userReview
 
-
-
     return (
         <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
             <div className="flex justify-between p-4">

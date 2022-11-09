@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../../hooks/useTitle';
 
 const UpdateReview = () => {
 
     const storedReview = useLoaderData()
     const { serviceName, userName, userImg, email, review } = storedReview
     const [userReview, setUserReview] = useState(storedReview)
+    useTitle('Update Review')
 
 
     const handleUpdate = (event) => {

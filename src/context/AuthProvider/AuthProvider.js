@@ -25,6 +25,7 @@ const AuthProvider = ({ children }) => {
     }
 
     const logOut = () => {
+        localStorage.removeItem('ISCloudKitchen-token')
         return signOut(auth);
     }
 

@@ -1,13 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import useTitle from '../../../hooks/useTitle';
 import Banner from '../../Banner/Banner';
 import ItemsCard from '../ItemsCard/ItemsCard';
 import Order from '../ItemsCard/Order/Order';
 
 const Home = () => {
-    const { user } = useContext(AuthContext)
     const [items, setItems] = useState([]);
     useTitle('Home')
     // console.log(user)

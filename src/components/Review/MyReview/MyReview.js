@@ -1,17 +1,28 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 import ShowMyReview from '../ShowMyReview/ShowMyReview';
 
 const MyReview = () => {
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
     const [reviews, setReviews] = useState([])
     // console.log(reviews)
+    useTitle('My Review')
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
-            .then(res => res.json())
+        fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('ISCloudKitchen-token')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    return logOut()
+                }
+                return res.json()
+            })
             .then(data => setReviews(data))
-    }, [user?.email])
+    }, [user?.email, logOut])
 
 
     const handleDelete = (id) => {
@@ -22,7 +33,7 @@ const MyReview = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+                    // console.log(data);
                     if (data.deletedCount > 0) {
                         alert('Deleted Successfully');
                         const remaining = reviews.filter(rev => rev._id !== id);
@@ -38,12 +49,14 @@ const MyReview = () => {
             <h1 className='text-3xl text-center font-bold my-3'>My Review</h1>
             <div>
                 {
-                    reviews?.map(userReview => <ShowMyReview
-                        key={userReview._id}
-                        userReview={userReview}
-                        handleDelete={handleDelete}
-
-                    ></ShowMyReview>)
+                    reviews?.service ?
+                        <h1 className='text-3xl font-bold text-center'>No Review Added</h1>
+                        :
+                        reviews?.map(userReview => <ShowMyReview
+                            key={userReview._id}
+                            userReview={userReview}
+                            handleDelete={handleDelete}
+                        ></ShowMyReview>)
                 }
             </div>
         </div>

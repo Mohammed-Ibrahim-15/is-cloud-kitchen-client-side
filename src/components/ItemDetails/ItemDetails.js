@@ -4,6 +4,7 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import ServiceReview from '../Review/ServiceReview/ServiceReview';
 import ShowAllReview from '../Review/ShowAllReview/ShowAllReview';
+import useTitle from '../../hooks/useTitle';
 
 const ItemDetails = () => {
     // const item = useLoaderData
@@ -11,6 +12,7 @@ const ItemDetails = () => {
     const item = useLoaderData()
     const { _id, img, name, description, price } = item
     const [allReview, setAllReview] = useState([])
+    useTitle('Service Details')
 
     useEffect(() => {
         fetch(`http://localhost:5000/allReview?service=${_id}`)
