@@ -1,6 +1,40 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 
 const UpdateReview = () => {
+    // const { user } = useContext(AuthContext)
+    const storedReview = useLoaderData()
+    const { serviceName, userName, userImg, email, review } = storedReview
+    const [userReview, setUserReview] = useState(storedReview)
+
+    const handleUpdate = (event) => {
+        event.preventDefault();
+        console.log(userReview)
+
+        // fetch(`http://localhost:5000/reviews/${id}`, {
+        //     method: 'PATCH',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify()
+
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         console.log(data)
+        //     })
+    }
+
+    const handleChange = (event) => {
+        const field = event.target.name;
+        const value = event.target.value;
+        const newReview = { ...userReview }
+        newReview[field] = value;
+        setUserReview(newReview)
+
+
+    }
     return (
         <div>
             <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
@@ -16,11 +50,10 @@ const UpdateReview = () => {
                     </div>
 
                 </div>
-                <div className="p-4 space-y-2 text-sm dark:text-gray-400">
-                    <p><span className='font-semibold'>Review:</span> {review}</p>
-                    <button className="btn btn-error btn-xs">Update</button>
-
-                </div>
+                <form onSubmit={handleUpdate} className="p-4 space-y-2 text-sm dark:text-gray-400">
+                    <textarea onChange={handleChange} name='review' defaultValue={review} className="textarea textarea-bordered w-full mt-2" placeholder="Update Your Review"></textarea>
+                    <input className='btn mt-2' type="submit" value="Update" />
+                </form>
             </div>
         </div>
     );

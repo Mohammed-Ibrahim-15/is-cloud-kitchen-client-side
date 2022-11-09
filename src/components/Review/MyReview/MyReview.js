@@ -32,20 +32,6 @@ const MyReview = () => {
         }
     }
 
-    const handleUpdate = (id) => {
-        fetch(`http://localhost:5000/reviews/${id}`, {
-            method: 'PATCH',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify()
-
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-            })
-    }
 
     return (
         <div>
@@ -56,7 +42,7 @@ const MyReview = () => {
                         key={userReview._id}
                         userReview={userReview}
                         handleDelete={handleDelete}
-                        handleUpdate={handleUpdate}
+
                     ></ShowMyReview>)
                 }
             </div>
