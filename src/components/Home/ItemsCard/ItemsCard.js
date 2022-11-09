@@ -15,7 +15,8 @@ const ItemsCard = ({ item }) => {
                             </PhotoView>
                         }
                     </div>
-                </PhotoProvider>                <div className="card-body">
+                </PhotoProvider>
+                <div className="card-body">
                     <h2 className="card-title text-2xl">{name}</h2>
                     <h2 className="card-title text-base">Price: {price}$</h2>
                     {
