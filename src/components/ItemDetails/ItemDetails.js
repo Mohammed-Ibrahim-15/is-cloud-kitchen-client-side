@@ -1,15 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import ServiceReview from '../Review/ServiceReview/ServiceReview';
+import ShowAllReview from '../Review/ShowAllReview/ShowAllReview';
 
 const ItemDetails = () => {
     // const item = useLoaderData
     const { user } = useContext(AuthContext)
-    console.log(user)
-    const { img, name, description, price } = useLoaderData()
     const item = useLoaderData()
+    const { _id, img, name, description, price } = item
+    const [allReview, setAllReview] = useState([])
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/allReview?service=${_id}`)
+            .then(res => res.json())
+            .then(data => setAllReview(data))
+    }, [_id])
+
     return (
         <div className='flex justify-center'>
             <div className="card w-1/2 bg-base-100 pb-20 shadow-xl">
@@ -29,6 +37,10 @@ const ItemDetails = () => {
                     <h2 className="card-title  text-2xl font-semibold">Price: {price}$</h2>
                     <p>{description}</p>
                 </div>
+                <h1 className='text-center text-2xl font-bold mb-6'>Review Section</h1>
+                {
+                    allReview.map(rev => <ShowAllReview key={rev._id} rev={rev}></ShowAllReview>)
+                }
                 {
                     user?.email ?
                         <ServiceReview item={item}></ServiceReview>

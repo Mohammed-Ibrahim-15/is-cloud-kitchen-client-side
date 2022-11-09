@@ -45,8 +45,7 @@ const ServiceReview = ({ item }) => {
     console.log(user)
     return (
         <div>
-            <h1 className='text-center text-2xl font-bold mb-6'>Review Section</h1>
-
+            <h1 className='text-center text-2xl font-semibold mt-8'>Give Your Review</h1>
             <form onSubmit={handleReview} className='flex flex-col items-center'>
                 <div>
                     <img src={user?.photoURL || <FaUserAlt />} alt="" className="object-cover w-12 h-12 rounded-full dark:bg-gray-500" />
