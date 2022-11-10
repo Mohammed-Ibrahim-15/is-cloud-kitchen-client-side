@@ -6,7 +6,7 @@ import ShowMyReview from '../ShowMyReview/ShowMyReview';
 const MyReview = () => {
     const { user, logOut } = useContext(AuthContext)
     const [reviews, setReviews] = useState([])
-    // console.log(reviews)
+    // console.log(reviews) 
     useTitle('My Review')
 
     useEffect(() => {
