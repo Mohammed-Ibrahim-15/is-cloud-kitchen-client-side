@@ -7,10 +7,10 @@
 ### Live Vercel Server link: 
 ## [https://is-cloud-kitchen-server-side-mohammed-ibrahim-15.vercel.app/](https://is-cloud-kitchen-server-side-mohammed-ibrahim-15.vercel.app/)
 
-### Github Repo Client Site Link: 
+### Github Repo Client Side Link: 
 ## [https://github.com/Porgramming-Hero-web-course/b6a11-service-review-client-side-Mohammed-Ibrahim-15](https://github.com/Porgramming-Hero-web-course/b6a11-service-review-client-side-Mohammed-Ibrahim-15)
 
-### Github Repo Server Site Link: 
+### Github Repo Server Side Link: 
 ## [https://github.com/Porgramming-Hero-web-course/b6a11-service-review-server-side-Mohammed-Ibrahim-15](https://github.com/Porgramming-Hero-web-course/b6a11-service-review-server-side-Mohammed-Ibrahim-15)
 
 ## Features of our website:
