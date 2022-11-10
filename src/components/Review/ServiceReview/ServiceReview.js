@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import { FaUserAlt } from 'react-icons/fa';
+import toast, { Toaster } from 'react-hot-toast';
 
 const ServiceReview = ({ item }) => {
     const { _id, name } = item
@@ -34,7 +35,8 @@ const ServiceReview = ({ item }) => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    alert('Review Added')
+                    // alert('Review Added')
+                    toast.success('Review Added Successfully!')
                     form.reset();
                 }
             })
@@ -45,7 +47,7 @@ const ServiceReview = ({ item }) => {
     console.log(user)
     return (
         <div>
-            <h1 className='text-center text-2xl font-semibold mt-8'>Give Your Review</h1>
+            <h1 className='text-center text-2xl font-bold mt-4'>Give Your Review</h1>
             <form onSubmit={handleReview} className='flex flex-col items-center'>
                 <div>
                     {
@@ -60,6 +62,7 @@ const ServiceReview = ({ item }) => {
                 </div>
                 <textarea name='review' className="textarea textarea-bordered w-1/2 mt-2" placeholder="Write Your Review"></textarea>
                 <input className='btn mt-2' type="submit" value="Post" />
+                <Toaster />
             </form>
 
         </div>

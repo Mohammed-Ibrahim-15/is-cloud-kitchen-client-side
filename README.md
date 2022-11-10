@@ -23,11 +23,11 @@
 ### <li> Anyone can easily watch our food from the services page and order by his/her fingertip. </li>
 
 
-## List of technologies:
+## List of functionalities:
 
 ### <li>We are using Tailwind CSS in our website</li>
 ### <li>We also use Daisy UI as CSS component library in our website</li>
 ### <li>We are using Firebase authentication for our website authentication</li>
 ### <li>Depending on criteria we used react-photo-view, react-toast etc </li>
 ### <li>In some private pages we are using private route for our customer privacy</li>
-### <li>For our client security purposes we used JWT where we have important information of our client</li>
+### <li>For our client security purposes we used JWT where we protecting important information of our client</li>

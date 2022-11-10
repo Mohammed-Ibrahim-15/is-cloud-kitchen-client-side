@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import useTitle from '../../../hooks/useTitle';
 import ShowMyReview from '../ShowMyReview/ShowMyReview';
+import toast from 'react-hot-toast';
 
 const MyReview = () => {
     const { user, logOut } = useContext(AuthContext)
@@ -24,8 +25,8 @@ const MyReview = () => {
             .then(data => setReviews(data))
     }, [user?.email, logOut])
 
-
     const handleDelete = (id) => {
+
         const proceed = window.confirm('Do you want to delete this review?')
         if (proceed) {
             fetch(`https://is-cloud-kitchen-server-side-mohammed-ibrahim-15.vercel.app/reviews/${id}`, {
@@ -35,7 +36,8 @@ const MyReview = () => {
                 .then(data => {
                     // console.log(data);
                     if (data.deletedCount > 0) {
-                        alert('Deleted Successfully');
+                        // alert('Deleted Successfully');
+                        toast.success('Review Deleted Successfully!')
                         const remaining = reviews.filter(rev => rev._id !== id);
                         setReviews(remaining)
                     }
@@ -50,7 +52,7 @@ const MyReview = () => {
             <div>
                 {
                     reviews?.length === 0 ?
-                        <h1 className='text-3xl font-bold text-center'>No Review Added</h1>
+                        <h1 className='text-2xl font-bold text-center'>No Review Added</h1>
                         :
                         reviews?.map(userReview => <ShowMyReview
                             key={userReview._id}

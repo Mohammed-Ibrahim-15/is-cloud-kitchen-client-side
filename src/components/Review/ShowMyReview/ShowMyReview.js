@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaUserAlt } from 'react-icons/fa';
+import { Toaster } from 'react-hot-toast';
+
 
 const ShowMyReview = ({ userReview, handleDelete }) => {
     // console.log(userReview)
     const { _id, serviceName, userName, userImg, review, email } = userReview
 
     return (
-        <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
+        <div className="container flex flex-col w-full max-w-lg p-3 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
             <div className="flex justify-between p-4">
                 <div className="flex space-x-4">
                     <div>
@@ -29,7 +31,7 @@ const ShowMyReview = ({ userReview, handleDelete }) => {
                 <p><span className='font-semibold'>Review:</span> {review}</p>
                 <Link to={`/update/${_id}`}><button className="btn btn-active btn-info btn-xs mr-2">Edit</button></Link>
                 <button onClick={() => handleDelete(_id)} className="btn btn-error btn-xs">Delete</button>
-
+                <Toaster />
             </div>
         </div>
     );

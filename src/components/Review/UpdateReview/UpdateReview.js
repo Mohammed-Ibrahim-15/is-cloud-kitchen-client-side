@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { FaUserAlt } from 'react-icons/fa';
 import useTitle from '../../../hooks/useTitle';
+import toast, { Toaster } from 'react-hot-toast';
 
 const UpdateReview = () => {
 
@@ -25,7 +26,8 @@ const UpdateReview = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    alert('Review Updated')
+                    // alert('Review Updated')
+                    toast.success('Review Updated Successfully!')
                     console.log(data)
                 }
             })
@@ -41,7 +43,8 @@ const UpdateReview = () => {
 
     return (
         <div>
-            <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
+            <h1 className='text-3xl font-bold text-center my-3'>Update Review</h1>
+            <div className="container flex flex-col w-full max-w-lg p-3 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
                 <div className="flex justify-between p-4">
                     <div className="flex space-x-4">
                         <div>
@@ -62,6 +65,7 @@ const UpdateReview = () => {
                 <form onSubmit={handleUpdate} className="p-4 space-y-2 text-sm dark:text-gray-400">
                     <textarea onChange={handleChange} name='review' defaultValue={review} className="textarea textarea-bordered w-full mt-2" placeholder="Update Your Review"></textarea>
                     <input className='btn mt-2' type="submit" value="Update" />
+                    <Toaster />
                 </form>
             </div>
         </div>

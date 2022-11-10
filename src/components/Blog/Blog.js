@@ -5,7 +5,7 @@ const Blog = () => {
     useTitle('Blog')
     return (
         <div className='max-w-screen-xl mx-auto'>
-            <h1 className='my-6 text-center text-4xl font-bold'>All Blog</h1>
+            <h1 className='my-3 text-center text-3xl font-bold'>All Blog</h1>
             <div className=' grid grid-cols-1 gap-6 lg:grid-cols-2'>
                 <div className="card bg-base-100 shadow-xl">
                     <div className="card-body items-center text-center">

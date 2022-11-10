@@ -39,7 +39,7 @@ const ItemDetails = () => {
                     <h2 className="card-title  text-2xl font-semibold">Price: {price}$</h2>
                     <p>{description}</p>
                 </div>
-                <h1 className='text-center text-2xl font-bold mb-6'>Review Section</h1>
+                <h1 className='text-center text-2xl font-bold'>Review Section</h1>
                 {
                     allReview.map(rev => <ShowAllReview key={rev._id} rev={rev}></ShowAllReview>)
                 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import useTitle from '../../hooks/useTitle';
+import toast, { Toaster } from 'react-hot-toast';
 
 const AddService = () => {
     const [service, setService] = useState({})
@@ -9,6 +10,8 @@ const AddService = () => {
     const handleAddService = (event) => {
         event.preventDefault()
         console.log(service)
+
+
 
         fetch('https://is-cloud-kitchen-server-side-mohammed-ibrahim-15.vercel.app/items', {
             method: 'POST',
@@ -20,7 +23,8 @@ const AddService = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    alert('Service added successfully');
+                    // alert('Service added successfully');
+                    toast.success('Service Added Successfully!')
                     event.target.reset();
                 }
             })
@@ -70,7 +74,8 @@ const AddService = () => {
                             <input onBlur={handleInputBlur} type="text" name='description' placeholder="Description" className="input input-bordered" />
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Add Service</button>
+                            <button type='submit' className="btn btn-primary">Add Service</button>
+                            <Toaster />
                         </div>
                     </form>
                 </div>
