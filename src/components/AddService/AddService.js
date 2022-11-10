@@ -10,7 +10,7 @@ const AddService = () => {
         event.preventDefault()
         console.log(service)
 
-        fetch('http://localhost:5000/items', {
+        fetch('https://is-cloud-kitchen-server-side-mohammed-ibrahim-15.vercel.app/items', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

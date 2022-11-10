@@ -10,7 +10,7 @@ const MyReview = () => {
     useTitle('My Review')
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+        fetch(`https://is-cloud-kitchen-server-side-mohammed-ibrahim-15.vercel.app/reviews?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('ISCloudKitchen-token')}`
             }
@@ -28,7 +28,7 @@ const MyReview = () => {
     const handleDelete = (id) => {
         const proceed = window.confirm('Do you want to delete this review?')
         if (proceed) {
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`https://is-cloud-kitchen-server-side-mohammed-ibrahim-15.vercel.app/reviews/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

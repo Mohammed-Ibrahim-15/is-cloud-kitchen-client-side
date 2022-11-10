@@ -15,7 +15,7 @@ const ItemDetails = () => {
     useTitle('Service Details')
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allReview?service=${_id}`)
+        fetch(`https://is-cloud-kitchen-server-side-mohammed-ibrahim-15.vercel.app/allReview?service=${_id}`)
             .then(res => res.json())
             .then(data => setAllReview(data))
     }, [_id])

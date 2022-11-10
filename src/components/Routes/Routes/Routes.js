@@ -29,7 +29,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/update/:id',
                 element: <UpdateReview></UpdateReview>,
-                loader: ({ params }) => fetch(`http://localhost:5000/update/${params.id}`)
+                loader: ({ params }) => fetch(`https://is-cloud-kitchen-server-side-mohammed-ibrahim-15.vercel.app/update/${params.id}`)
             },
             {
                 path: 'myReview',
@@ -50,14 +50,14 @@ export const routes = createBrowserRouter([
             {
                 path: '/services',
                 loader: () => {
-                    return fetch('http://localhost:5000/services')
+                    return fetch('https://is-cloud-kitchen-server-side-mohammed-ibrahim-15.vercel.app/services')
                 },
                 element: <Services></Services>
             },
             {
                 path: '/services/:id',
                 element: <ItemDetails></ItemDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://is-cloud-kitchen-server-side-mohammed-ibrahim-15.vercel.app/services/${params.id}`)
             }
         ]
     }

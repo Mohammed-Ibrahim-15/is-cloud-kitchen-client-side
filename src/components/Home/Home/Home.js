@@ -10,7 +10,7 @@ const Home = () => {
     useTitle('Home')
     // console.log(user)
     useEffect(() => {
-        fetch('http://localhost:5000/items')
+        fetch('https://is-cloud-kitchen-server-side-mohammed-ibrahim-15.vercel.app/items')
             .then(res => res.json())
             .then(data => setItems(data))
 

@@ -15,7 +15,7 @@ const UpdateReview = () => {
         event.preventDefault();
         // console.log(userReview)
 
-        fetch(`http://localhost:5000/update/${storedReview._id}`, {
+        fetch(`https://is-cloud-kitchen-server-side-mohammed-ibrahim-15.vercel.app/update/${storedReview._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
