@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaUserAlt } from 'react-icons/fa';
 
 const ShowMyReview = ({ userReview, handleDelete }) => {
     // console.log(userReview)
@@ -10,7 +11,12 @@ const ShowMyReview = ({ userReview, handleDelete }) => {
             <div className="flex justify-between p-4">
                 <div className="flex space-x-4">
                     <div>
-                        <img src={userImg} alt="" className="object-cover w-12 h-12 rounded-full dark:bg-gray-500" />
+                        {
+                            userImg ?
+                                <img src={userImg} alt="" className="object-cover w-12 h-12 rounded-full dark:bg-gray-500" />
+                                :
+                                <FaUserAlt />
+                        }
                     </div>
                     <div>
                         <h4 className="font-bold">{userName ? userName : email}</h4>

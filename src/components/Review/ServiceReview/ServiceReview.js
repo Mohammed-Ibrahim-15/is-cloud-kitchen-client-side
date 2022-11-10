@@ -48,7 +48,12 @@ const ServiceReview = ({ item }) => {
             <h1 className='text-center text-2xl font-semibold mt-8'>Give Your Review</h1>
             <form onSubmit={handleReview} className='flex flex-col items-center'>
                 <div>
-                    <img src={user?.photoURL || <FaUserAlt />} alt="" className="object-cover w-12 h-12 rounded-full dark:bg-gray-500" />
+                    {
+                        user?.photoURL ?
+                            <img src={user?.photoURL} alt="" className="object-cover w-12 h-12 rounded-full dark:bg-gray-500" />
+                            :
+                            <FaUserAlt />
+                    }
                 </div>
                 <div>
                     <h4 className="font-bold">{user?.displayName || user?.email}</h4>

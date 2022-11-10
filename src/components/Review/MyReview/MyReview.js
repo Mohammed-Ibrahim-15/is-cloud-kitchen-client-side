@@ -49,7 +49,7 @@ const MyReview = () => {
             <h1 className='text-3xl text-center font-bold my-3'>My Review</h1>
             <div>
                 {
-                    reviews?.service ?
+                    reviews?.length === 0 ?
                         <h1 className='text-3xl font-bold text-center'>No Review Added</h1>
                         :
                         reviews?.map(userReview => <ShowMyReview
