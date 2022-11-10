@@ -84,7 +84,10 @@ const Login = () => {
                         navigate(from, { replace: true })
                     });
             })
-            .catch(err => console.error(err))
+            .catch(err => {
+                console.error(err)
+                setLoading(false)
+            })
     }
 
     return (
