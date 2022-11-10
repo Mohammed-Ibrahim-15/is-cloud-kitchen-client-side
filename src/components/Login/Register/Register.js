@@ -4,13 +4,20 @@ import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import useTitle from '../../../hooks/useTitle';
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext)
+    const { createUser, loading, setLoading } = useContext(AuthContext)
     const location = useLocation();
     const navigate = useNavigate();
     useTitle('Register')
 
     const from = location.state?.from?.pathname || '/'
 
+    if (loading) {
+        return <>
+            <div className='flex flex-col items-center my-4'>
+                <div className="bg-gray-400 flex w-12 h-12 border-4 border-dashed rounded-full animate-spin dark:border-black"></div>
+            </div>
+        </>
+    }
 
     const handleRegister = (event) => {
         event.preventDefault()
@@ -38,6 +45,7 @@ const Register = () => {
                     .then(data => {
                         console.log(data)
                         localStorage.setItem('ISCloudKitchen-token', data.token)
+                        setLoading(false)
                         navigate(from, { replace: true })
                     });
 

@@ -15,7 +15,7 @@ const Navbar = () => {
                     <li className='font-semibold'><Link to='/myReview'>My Review</Link> </li>
                     <li className='font-semibold'><Link to='/addService'>Add Service</Link></li>
                     <li className='font-semibold'><Link onClick={logOut}>Logout</Link> </li>
-                    <li><Link to='/'><span className='text-xs italic'>{user?.email}</span></Link> </li>
+                    <li><Link to='/'><span className='text-xs italic text-gray-500'>{user?.email}</span></Link> </li>
                 </>
 
                 :
