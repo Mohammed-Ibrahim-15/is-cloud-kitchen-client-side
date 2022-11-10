@@ -53,25 +53,25 @@ const AddService = () => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input onBlur={handleInputBlur} type="text" name='name' placeholder="Name" className="input input-bordered" />
+                            <input onBlur={handleInputBlur} type="text" name='name' placeholder="Name" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Image URL</span>
                             </label>
-                            <input onBlur={handleInputBlur} type="text" name='img' placeholder="Image URL" className="input input-bordered" />
+                            <input onBlur={handleInputBlur} type="text" name='img' placeholder="Image URL" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Price</span>
                             </label>
-                            <input onBlur={handleInputBlur} type="text" name='price' placeholder="Price" className="input input-bordered" />
+                            <input onBlur={handleInputBlur} type="text" name='price' placeholder="Price" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Description</span>
                             </label>
-                            <input onBlur={handleInputBlur} type="text" name='description' placeholder="Description" className="input input-bordered" />
+                            <input onBlur={handleInputBlur} type="text" name='description' placeholder="Description" className="input input-bordered" required />
                         </div>
                         <div className="form-control mt-6">
                             <button type='submit' className="btn btn-primary">Add Service</button>
