@@ -7,15 +7,15 @@ const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
     console.log(user)
     const menuItems = <>
-        <li><Link to='/'>Home</Link> </li>
-        <li><Link to='/blog'>Blog</Link> </li>
+        <li className='font-semibold'><Link to='/'>Home</Link> </li>
+        <li className='font-semibold'><Link to='/blog'>Blog</Link> </li>
         {
             user?.email ?
                 <>
-                    <li><Link to='/myReview'>My Review</Link> </li>
-                    <li><Link to='/addService'>Add Service</Link></li>
-                    <li><Link onClick={logOut}>Logout</Link> </li>
-                    <li><Link to='/'>{user?.email}</Link> </li>
+                    <li className='font-semibold'><Link to='/myReview'>My Review</Link> </li>
+                    <li className='font-semibold'><Link to='/addService'>Add Service</Link></li>
+                    <li className='font-semibold'><Link onClick={logOut}>Logout</Link> </li>
+                    <li><Link to='/'><span className='text-xs italic'>{user?.email}</span></Link> </li>
                 </>
 
                 :
@@ -43,7 +43,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link className="btn">Get started</Link>
+                <Link className="btn btn-outline">Dark Mode</Link>
             </div>
         </div>
     );

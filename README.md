@@ -19,13 +19,14 @@
 ### <li>It is user friendly and easy to access.</li>
 ### <li>Our website is not so heavy. So it can't take long time to process.</li>
 ### <li>User can access from any devices. Very well responsive.</li>
-### <li>User can create their account easily and they can also login with there google and github account. And easily watch our food from the services page. </li>
+### <li>User can create their account easily and they can also login with there google and github account. </li>
+### <li> Anyone can easily watch our food from the services page and order by his/her fingertip. </li>
 
 
 ## List of technologies:
 
-### <li>We are using Tailwind CSS front-end framework in our website</li>
-### <li>We also use Daisy UI as CSS framework in our website</li>
+### <li>We are using Tailwind CSS in our website</li>
+### <li>We also use Daisy UI as CSS component library in our website</li>
 ### <li>We are using Firebase authentication for our website authentication</li>
 ### <li>Depending on criteria we used react-photo-view, react-toast etc </li>
 ### <li>In some private pages we are using private route for our customer privacy</li>
