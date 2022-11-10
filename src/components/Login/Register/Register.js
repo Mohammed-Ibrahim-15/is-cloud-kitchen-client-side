@@ -23,10 +23,28 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
-                navigate(from, { replace: true });
+                const currentUser = {
+                    email: user.email
+                }
+
+                fetch('https://is-cloud-kitchen-server-side-mohammed-ibrahim-15.vercel.app/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        localStorage.setItem('ISCloudKitchen-token', data.token)
+                        navigate(from, { replace: true })
+                    });
+
             })
             .catch(err => console.error(err))
     }
+
     return (
         <div className="hero min-h-60 bg-base-200">
             <div className="hero-content flex-col lg:flex-cols-reverse">
